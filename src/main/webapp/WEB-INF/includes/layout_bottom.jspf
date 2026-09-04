@@ -1,0 +1,17 @@
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function abrirSidebar() {
+    document.getElementById('silverSidebar').classList.add('abierta');
+    document.getElementById('sidebarOverlay').classList.add('visible');
+}
+function cerrarSidebar() {
+    document.getElementById('silverSidebar').classList.remove('abierta');
+    document.getElementById('sidebarOverlay').classList.remove('visible');
+}
+</script>
+</body>
+</html>

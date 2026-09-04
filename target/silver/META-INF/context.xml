@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Configuración de despliegue para Tomcat 10+.
+
+    Esto es lo que declara el recurso JNDI "jdbc/PosDS" que ConexionBD
+    busca primero antes de caer en el pool HikariCP embebido.
+-->
+
+<Context path="/silver">
+
+  <Resource 
+      auth="Container"
+      driverClassName="com.mysql.cj.jdbc.Driver"
+      maxIdle="10"
+      maxTotal="30"
+      maxWaitMillis="10000"
+      minIdle="5"
+      name="jdbc/SilverDs"
+      password="1234"
+      testOnBorrow="true"
+      type="javax.sql.DataSource"
+      url="jdbc:mysql://localhost:3306/silver?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=America/Mexico_City&amp;characterEncoding=UTF-8"
+      username="root"
+      validationQuery="SELECT 1"/>
+
+</Context>

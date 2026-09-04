@@ -1,0 +1,46 @@
+<%-- Fragmento comun: head + apertura de sidebar. Se incluye con <%@ include %> --%>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILVER | <%= pageTitle != null ? pageTitle : "SILVER" %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/silver-theme.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="cerrarSidebar()"></div>
+
+<div class="silver-sidebar" id="silverSidebar">
+    <img src="${pageContext.request.contextPath}/assets/img/silver_logo_texto_white.png"
+         alt="SILVER" class="sidebar-logo">
+    <nav class="nav flex-column mt-4">
+        <a class="nav-link <%= "dashboard".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/dashboard"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+        <a class="nav-link <%= "productos".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/productos"><i class="bi bi-box-seam"></i> Productos</a>
+        <a class="nav-link <%= "inventario".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/movimientos"><i class="bi bi-boxes"></i> Inventario</a>
+        <a class="nav-link <%= "ventas".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/ventas"><i class="bi bi-cart-check-fill"></i> Ventas POS</a>
+        <a class="nav-link <%= "proveedores".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/proveedores"><i class="bi bi-truck"></i> Proveedores</a>
+        <a class="nav-link <%= "categorias".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/categorias"><i class="bi bi-tags-fill"></i> Categorias</a>
+        <a class="nav-link <%= "creditos".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/creditos"><i class="bi bi-credit-card-2-front-fill"></i> Creditos</a>
+        <a class="nav-link <%= "locatarios".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/locatarios"><i class="bi bi-people-fill"></i> Locatarios</a>
+        <a class="nav-link <%= "reportes".equals(activeMenu) ? "active" : "" %>" href="${pageContext.request.contextPath}/reportes"><i class="bi bi-bar-chart-line-fill"></i> Reportes</a>
+        <a class="nav-link" href="#"><i class="bi bi-gear-fill"></i> Configuracion</a>
+    </nav>
+</div>
+
+<div class="silver-content">
+    <div class="silver-navbar">
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn-menu-toggle" onclick="abrirSidebar()"><i class="bi bi-list"></i></button>
+            <span class="fw-semibold text-white"><%= pageTitle %></span>
+        </div>
+        <div>
+            <span class="navbar-user me-3">
+                <i class="bi bi-person-circle"></i> ${sessionScope.usuarioNombre} (${sessionScope.usuarioRol})
+            </span>
+            <a href="${pageContext.request.contextPath}/logout"><i class="bi bi-box-arrow-right"></i> Salir</a>
+        </div>
+    </div>
+    <div class="p-4">

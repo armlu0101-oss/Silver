@@ -1,0 +1,280 @@
+:root {
+    --silver-black: #0d0d0d;
+    --silver-dark: #1a1a1a;
+    --silver-dark-2: #232323;
+    --silver-gray: #c0c0c0;
+    --silver-white: #f5f5f5;
+    --silver-gold: #d4af37;
+    --silver-gold-soft: #e6c766;
+    --silver-warning: #ff9f1c;
+    --silver-danger: #e5383b;
+    --silver-radius: 10px;
+}
+
+body {
+    background-color: var(--silver-white);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    color: #222;
+}
+
+/* ===================== LOGIN ===================== */
+.silver-login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, var(--silver-dark) 0%, var(--silver-black) 70%);
+}
+
+.silver-login-card {
+    background: var(--silver-dark);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: var(--silver-radius);
+    padding: 2.5rem 2.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.silver-login-logo {
+    display: block;
+    max-width: 190px;
+    margin: 0 auto 0.5rem;
+}
+
+.silver-login-tagline {
+    text-align: center;
+    color: var(--silver-gray);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+}
+
+.silver-login-card label {
+    color: var(--silver-gray);
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+.silver-login-card .form-control {
+    background-color: var(--silver-dark-2);
+    border: 1px solid #333;
+    color: var(--silver-white);
+}
+
+.silver-login-card .form-control:focus {
+    background-color: var(--silver-dark-2);
+    color: var(--silver-white);
+    border-color: var(--silver-gold);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+.btn-silver {
+    background-color: var(--silver-black);
+    border: 1px solid var(--silver-gold);
+    color: var(--silver-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-silver:hover {
+    background-color: var(--silver-gold);
+    color: var(--silver-black);
+    border-color: var(--silver-gold);
+}
+
+/* ===================== LAYOUT (sidebar + navbar) ===================== */
+.silver-sidebar {
+    background-color: var(--silver-black);
+    min-height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #222;
+}
+
+.silver-sidebar .sidebar-logo {
+    max-width: 120px;
+    margin: 1.5rem auto 0.5rem;
+    display: block;
+}
+
+.silver-sidebar .nav-link {
+    color: var(--silver-gray);
+    padding: 0.7rem 1.4rem;
+    font-size: 0.92rem;
+    border-left: 3px solid transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+.silver-sidebar .nav-link i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.silver-sidebar .nav-link:hover,
+.silver-sidebar .nav-link.active {
+    color: var(--silver-gold);
+    background-color: rgba(212, 175, 55, 0.08);
+    border-left: 3px solid var(--silver-gold);
+}
+
+.silver-content {
+    margin-left: 250px;
+    min-height: 100vh;
+    background-color: #f4f4f6;
+    transition: margin-left 0.2s ease-in-out;
+}
+
+/* ===================== RESPONSIVE (movil/tablet) ===================== */
+@media (max-width: 992px) {
+    .silver-sidebar {
+        left: -250px;
+        transition: left 0.2s ease-in-out;
+        z-index: 1050;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+    }
+    .silver-sidebar.abierta {
+        left: 0;
+    }
+    .silver-content {
+        margin-left: 0;
+    }
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 1040;
+    }
+    .sidebar-overlay.visible {
+        display: block;
+    }
+    .btn-menu-toggle {
+        display: inline-flex !important;
+    }
+    .kpi-value { font-size: 1.35rem; }
+    .silver-navbar .navbar-user { display: none; }
+}
+
+.btn-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--silver-gray);
+    font-size: 1.3rem;
+}
+.btn-menu-toggle:hover { color: var(--silver-gold); }
+
+/* ===================== ESTADOS VACIOS ===================== */
+.estado-vacio {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: #999;
+}
+.estado-vacio i { font-size: 2rem; display: block; margin-bottom: 0.5rem; color: #ccc; }
+
+.silver-navbar {
+    background-color: var(--silver-dark);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+}
+
+.silver-navbar .navbar-user {
+    color: var(--silver-gray);
+    font-size: 0.9rem;
+}
+
+.silver-navbar a {
+    color: var(--silver-gray);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+
+.silver-navbar a:hover {
+    color: var(--silver-gold);
+}
+
+/* ===================== KPI CARDS ===================== */
+.kpi-card {
+    background-color: #fff;
+    border-radius: var(--silver-radius);
+    border: 1px solid #e6e6e6;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.15s ease-in-out;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--silver-gold);
+}
+
+.kpi-card .kpi-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--silver-black);
+    color: var(--silver-gold);
+    font-size: 1.2rem;
+}
+
+.kpi-card .kpi-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.kpi-card .kpi-label {
+    color: #888;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===================== TABLAS ===================== */
+.table-silver thead {
+    background-color: var(--silver-black);
+    color: var(--silver-gray);
+}
+
+.table-silver tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.06);
+}
+
+/* ===================== ALERTAS DE STOCK ===================== */
+.badge-stock-bajo {
+    background-color: var(--silver-warning);
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.badge-stock-agotado {
+    background-color: var(--silver-danger);
+    color: #fff;
+    font-weight: 600;
+}
+
+.alert-stock-bajo {
+    border-left: 4px solid var(--silver-warning);
+    background-color: #fff6ec;
+    color: #7a4a00;
+}
+
+.alert-stock-agotado {
+    border-left: 4px solid var(--silver-danger);
+    background-color: #fdecec;
+    color: #7a1315;
+}
